@@ -1,0 +1,73 @@
+
+
+<div class="text-center">
+  <div class="container d-flex w-70 p-3 mu-5 mx-auto flex-column">
+    <h1 class="display-3 mb-auto">Users</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <button class="btn btn-primary" [routerLink]="['add']"  [disabled]="notAdmin()">
+        Add New User
+      </button>
+    </div>
+
+    <div class="d-flex col-10">
+      <div class="col-10 p-3">
+      <table class="table table-hover table-bordered text-center">
+        <thead>
+          <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody class="table-group-divider"
+            *ngIf="users && users.length>0; else elseBlock">
+              <tr *ngFor="let user of users">
+                <td>{{user.username}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.role}}</td>
+                <td>
+                  <button
+                  [routerLink]="['/users', 'edit', user.id]"
+                  class="rounded-pill bg-info text-white border-0 px-2"
+                  [disabled]="notAdmin()"
+                >
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button
+                  (click)="deleteUser(user.id, user.name)"
+                  class="rounded-pill bg-danger text-light border-0 px-2"
+                  [disabled]="notAdmin()"
+                >
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+                  </td>
+
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #elseBlock>
+        <tbody class="table-group-divider">
+          <tr>
+            <td colspan="6" class="text-danger text-center fs-3 ">No Users Found...</td>
+          </tr>
+        </tbody>
+
+      </ng-template>
+    </div>
+
+  </div>
+
+</div>
+</div>
+

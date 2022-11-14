@@ -1,0 +1,23 @@
+
+
+<div class="text-center">
+  <div class="container d-flex w-70 p-3 mu-5 mx-auto flex-column">
+    <h1 class="display-3 mb-auto">Approved Products</h1>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-evenly mt-5 p-4 flex-wrap bg-light" style="width: 60rem;">
+
+  <div *ngFor="let product of products "  class="card text-center m-2 " style="width: 8rem;">
+    <div  *ngIf="(product.status == 'Approved')">
+      <i class="fa-solid fa-cube p-2 " style="font-size:72px;color:#0080ff"></i>
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+    </div>
+    </div>
+
+  </div>
+
+</div>
+
+

@@ -1,0 +1,109 @@
+
+<div class="container my-5">
+  <div class="row d-flex justify-content-center ">
+    <div class="col-6 bg-light p-3 border border-dark rounded-3">
+      <h1 class="display-5 mb-auto text-center">Add New User</h1>
+
+      <form class="p-3  rounded-3" [formGroup]="addForm" (ngSubmit)="addSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name"
+          name="name"  formControlName="name" >
+          <div class="form-text text-danger" *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)">
+            Name is required.
+          </div>
+          <div class="form-text text-danger" *ngIf="Name.errors?.['minlength'] && (Name.touched || Name.dirty)">
+            Name should be of minimum 3 characters.
+          </div>
+          <div class="form-text text-danger" *ngIf="Name.errors?.['pattern'] && (Name.touched || Name.dirty)">
+            Name should contain only alphabets and spaces.
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-6">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password"
+            name="password"  formControlName="password" >
+            <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+              Password is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="Password.errors?.['minlength'] && (Password.touched || Password.dirty)">
+              Password should be of minimum 6 characters.
+            </div>
+          </div>
+          <div class="mb-3 col-6">
+            <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="cpassword"
+            name="cpassword" formControlName="cpassword" >
+            <div class="form-text text-danger" [ngStyle]="{'display': confirmPass}">
+              Password does not match.
+            </div>
+          </div>
+
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address"
+          name="address" formControlName="address" >
+          <div class="form-text text-danger" *ngIf="Address.errors?.['required'] && (Address.touched || Address.dirty)">
+            Address is required.
+          </div>
+          <div class="form-text text-danger" *ngIf="Address.errors?.['minlength'] && (Address.touched || Address.dirty)">
+            Address should be of minimum 3 characters.
+          </div>
+          <div class="form-text text-danger" *ngIf="Address.errors?.['pattern'] && (Address.touched || Address.dirty)">
+            Address should contain only alphabets and spaces.
+          </div>
+
+        </div>
+        <div class="row">
+
+          <div class="mb-3 col-6">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city"
+            name="city" formControlName="city" >
+            <div class="form-text text-danger" *ngIf="City.errors?.['required'] && (City.touched || City.dirty)">
+              City is required.
+            </div>
+            <div class="form-text text-danger" *ngIf="City.errors?.['minlength'] && (City.touched || City.dirty)">
+              City should be of minimum 3 characters.
+            </div>
+            <div class="form-text text-danger" *ngIf="City.errors?.['pattern'] && (City.touched || City.dirty)">
+              City should contain only alphabets and spaces.
+            </div>
+          </div>
+          <div class="mb-3 col-6">
+            <div class="m-1">
+              <label for="role" class="form-label">Role</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="role" id="inlineRadioAdmin" value="Admin" formControlName="role">
+              <label class="form-check-label" for="inlineRadioAdmin">Admin</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="role" id="inlineRadioManager" value="Manager" formControlName="role">
+              <label class="form-check-label" for="inlineRadioManager">Manager</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="role" id="inlineRadioUser" value="User" formControlName="role">
+              <label class="form-check-label" for="inlineRadioUser">User</label>
+            </div>
+            <div class="form-text text-danger" *ngIf="Role.errors?.['required']">
+              Role is required.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 d-flex justify-content-end">
+          <button type="button" class="btn btn-secondary" (click)="cancelAdd()">Cancel</button>
+          <button type="submit" class="btn btn-primary mx-2" [disabled]="addForm.invalid">Add User</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+</div>
+
