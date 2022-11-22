@@ -1,0 +1,12 @@
+.navbar-nav li.active-tab {
+  border-radius: 10px;
+  background-color: azure;
+  font-weight: bold;
+}
+
+li.active-tab a{
+  color: rgb(80, 80, 255);
+}
+.navbar{
+  z-index: 100;
+}

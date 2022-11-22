@@ -103,13 +103,13 @@ export class EditUserComponent implements OnInit {
     .subscribe({
       next: (user) => {
         this.router.navigate(['/users']);
-        setTimeout(function() {alert(user.name + ' updated successfully!');},100);
+        setTimeout(function() {alert(user.name + ' updated successfully!');},600);
       }
     });
   }
   cancelUpdate(){
     this.router.navigate(['/users']);
-    setTimeout(function() {alert('Update Cancelled!');},100);
+    setTimeout(function() {alert('Update Cancelled!');},600);
   }
 
 }

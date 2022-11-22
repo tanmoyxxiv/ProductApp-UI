@@ -1,2 +1,5 @@
 <app-nav *ngIf="isUserAuthenticated()"></app-nav>
-<router-outlet></router-outlet>
+<div [@triggerName]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+

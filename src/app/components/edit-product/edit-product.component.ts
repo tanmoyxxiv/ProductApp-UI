@@ -45,7 +45,7 @@ export class EditProductComponent implements OnInit {
       next:(response) => {
         this.router.navigate(['/products']);
         const name = this.productDetails.name;
-        setTimeout(function() {alert(name  + ' updated successfully!');},100);
+        setTimeout(function() {alert(name  + ' updated successfully!');},600);
       }
     });
 
@@ -53,7 +53,7 @@ export class EditProductComponent implements OnInit {
 
   cancelUpdate(){
     this.router.navigate(['/products']);
-    setTimeout(function() {alert('Update Cancelled!');},100);
+    setTimeout(function() {alert('Update Cancelled!');},600);
 
   }
 

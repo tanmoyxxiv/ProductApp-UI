@@ -18,14 +18,17 @@ const routes: Routes = [
   {    path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {
+      animationState:  'Login'
+    }
   },
   {
     path: 'home',
     component: HomeComponent, canActivate: [AuthGuard],
     data: {
       roles: ['Admin','Manager','User'],
-      animation: 'isHome'
+      animationState:  'Home'
     }
   },
   {
@@ -33,29 +36,37 @@ const routes: Routes = [
     component: AboutComponent, canActivate: [AuthGuard],
     data: {
       roles: ['Admin','Manager','User'],
-      animation: 'isAbout'
+      animationState:  'About'
     }
   },
   {
     path: 'users',
     canActivate: [AuthGuard, RoleGuard],
     data: {
-      roles: ['Admin','Manager'],
-      animation: 'isUsers'
+      roles: ['Admin','Manager']
     },
     children : [
       {
         path: '',
-        component: UsersComponent, canActivate: [AuthGuard]
+        component: UsersComponent, canActivate: [AuthGuard],
+        data:{
+          animationState:  'Users'
+        }
 
       },
       {
         path: 'add',
-        component: AddUserComponent, canActivate: [AuthGuard]
+        component: AddUserComponent, canActivate: [AuthGuard],
+        data:{
+          animationState:  'UsersAddEdit'
+        }
       },
       {
         path: 'edit/:id',
-        component: EditUserComponent, canActivate: [AuthGuard]
+        component: EditUserComponent, canActivate: [AuthGuard],
+        data:{
+          animationState:  'UsersAddEdit'
+        }
       }
 
     ]
@@ -64,22 +75,30 @@ const routes: Routes = [
     path: 'products',
     canActivate: [AuthGuard],
     data: {
-      roles: ['Admin','Manager','User'],
-      animation: 'isProducts'
+      roles: ['Admin','Manager','User']
     },
     children : [
       {
         path: '',
-        component: ProductsComponent, canActivate: [AuthGuard]
+        component: ProductsComponent, canActivate: [AuthGuard],
+        data:{
+          animationState:  'Products'
+        }
 
       },
       {
         path: 'add',
-        component: AddProductComponent, canActivate: [AuthGuard]
+        component: AddProductComponent, canActivate: [AuthGuard],
+        data:{
+          animationState:  'ProductsAddEdit'
+        }
       },
       {
         path: 'edit/:id',
-        component: EditProductComponent, canActivate: [AuthGuard]
+        component: EditProductComponent, canActivate: [AuthGuard],
+        data:{
+          animationState:  'ProductsAddEdit'
+        }
       }
 
     ]
@@ -88,12 +107,15 @@ const routes: Routes = [
     path: 'accessdenied',
     component: UnauthorizedComponent, canActivate: [AuthGuard],
     data: {
-      animation: 'isUnauthorized'
+      animationState:  'Unauthorized'
     }
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    data: {
+      animationState:  'NotFound'
+    }
   }
 ];
 

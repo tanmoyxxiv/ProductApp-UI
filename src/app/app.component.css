@@ -1,0 +1,9 @@
+.navbar-nav li.active-tab {
+  border-radius: 10px;
+  background-color: azure;
+  font-weight: bold;
+}
+
+.navbar{
+  z-index: 100;
+}
