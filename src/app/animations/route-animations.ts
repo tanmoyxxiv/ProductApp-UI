@@ -6,7 +6,8 @@ export const routeTransitionAnimations =
 	  transition('Products=> Users, Products=> About, Products=>Home, Users => About,  About => Home, Users => Home', slideTo('left')),
 	  transition('UsersAddEdit => About, UsersAddEdit => Home', slideTo('left')),
 	  transition('ProductsAddEdit => Home,ProductsAddEdit => About,ProductsAddEdit => Users', slideTo('left')),
-    transition('UsersAddEdit => Users, ProductsAddEdit => Products, Login<=>*', slideY('down')),
+    transition('UsersAddEdit => Users, ProductsAddEdit => Products, Login<=>*' , slideY('down')),
+    transition('*<=>NotFound,*<=>Unauthorized' , slideY('down')),
     transition('Users => UsersAddEdit, Products => ProductsAddEdit', slideY('up'))
 ]);
 
