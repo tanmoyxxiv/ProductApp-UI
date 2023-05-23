@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { routeTransitionAnimations } from './animations/route-animations';
+import {  fadeInOut, routeTransitionAnimations } from './animations/route-animations';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-	animations: [routeTransitionAnimations]
+	animations: [fadeInOut,routeTransitionAnimations]
 })
 export class AppComponent {
   title = 'ProductApp-UI';

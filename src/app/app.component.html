@@ -1,4 +1,4 @@
-<app-nav *ngIf="isUserAuthenticated()"></app-nav>
+<app-nav *ngIf="isUserAuthenticated()" @fadeInOut></app-nav>
 <div [@triggerName]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
 </div>

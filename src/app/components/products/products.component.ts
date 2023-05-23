@@ -10,9 +10,16 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+  p: number = 1;
+  searchText = '';
   products: Product[]= [];
   status: Status = {status:''};
+  key: string = 'name';
+  reverse: boolean = false;
+  sort(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   constructor(private productService: ProductsService,private router : Router) { }
 
@@ -59,7 +66,6 @@ export class ProductsComponent implements OnInit {
         {
           this.router.navigate(['/products']);
         });
-
         setTimeout(function() {alert(name + ' deleted successfully!');},100);
       }
     });

@@ -22,7 +22,11 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { UsersService } from './services/users.service';
 import { ProductsService } from './services/products.service';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchPipe } from './search.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+// import { Ng2OrderModule } from 'ng2-order-pipe';
 export function tokenGetter() {
   return localStorage.getItem("jwt");
 }
@@ -41,7 +45,8 @@ export function tokenGetter() {
     AddProductComponent,
     EditProductComponent,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -49,11 +54,15 @@ export function tokenGetter() {
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    Ng2OrderModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
+
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:7263"],
+        allowedDomains: ["localhost:7263","localhost:8000","localhost:8081"],
         disallowedRoutes: []
       }
     })

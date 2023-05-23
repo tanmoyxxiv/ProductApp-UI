@@ -1,4 +1,4 @@
-import { trigger, transition, style, query, animateChild, group, animate } from '@angular/animations';
+import { trigger, transition, style, query, animateChild, group, animate, state } from '@angular/animations';
 
 export const routeTransitionAnimations =
   trigger('triggerName', [
@@ -9,6 +9,16 @@ export const routeTransitionAnimations =
     transition('UsersAddEdit => Users, ProductsAddEdit => Products, Login<=>*' , slideY('down')),
     transition('*<=>NotFound,*<=>Unauthorized' , slideY('down')),
     transition('Users => UsersAddEdit, Products => ProductsAddEdit', slideY('up'))
+]);
+export const fadeInOut = trigger('fadeInOut', [
+  state(
+    'in',
+    style({
+      opacity: 1,
+    })
+  ),
+  transition('void => *', [style({transform: 'translateY(-100%)' }), animate('200ms ease-out',style({transform: 'translateY(0%)'}))]),
+  transition('* => void', [animate('200ms ease-in'), style({ opacity: 0,transform: 'translateY(100%)'})]),
 ]);
 
 function slideTo(direction:string) {

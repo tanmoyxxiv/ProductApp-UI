@@ -11,11 +11,11 @@ import { ProductsService } from 'src/app/services/products.service';
 
 export class AddProductComponent implements OnInit {
 
-  addProductRequest: Product = {
-    id : 0,
+  addProductRequest: any = {
+    id : null,
     name: '',
-    quantity: 0,
-    price: 0,
+    quantity: null,
+    price: null,
     status: 'Pending'
   }
   constructor(private productService : ProductsService, private router:Router) { }
